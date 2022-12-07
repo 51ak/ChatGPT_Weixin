@@ -24,7 +24,10 @@ class WxHandle:
                     # 创建一条文本信息准备返回给微信，文本内容为“测试”
                     oo=chatgpt_()
                     isok,replaycontent=oo.chat(receive_msg.content)                    
+             
+                    print(f"isok:{isok},replaycontent:{replaycontent}")
                     msg = reply.TextMsg(receive_msg,replaycontent)
+
                     # 发送我创建的文本信息
                     return msg.send()
                 else:
