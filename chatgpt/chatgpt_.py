@@ -25,8 +25,9 @@ class chatgpt_():
         if isok:
             sb_mess=[]
             for c in response.choices:
-                sb_mess.append(c.text)
-            return isok,sb_mess 
+                if len(c.text)>1:
+                    sb_mess.append(c.text)
+            return isok,"".join(sb_mess)
         else:
             return isok,"error:{response}"
 
